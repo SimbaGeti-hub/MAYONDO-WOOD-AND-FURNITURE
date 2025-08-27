@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MWF Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">MWF</div>
+  
+    <ul class="menu">
+  <li data-roles="manager"><a href="dashboard.html" class="active"> <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
+  <li data-roles="manager sales"><a href="product.html"> <i class="fas fa-box"></i><span>Products</span> </a></li>
+  <li data-roles="manager sales"><a href="sales.html"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
+  <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
+  <li data-roles="manager sales delivery"><a href="delivery.html"> <i class="fas fa-route"></i><span>Delivery</span> </a></li>
+  <li data-roles="manager"><a href="reports.html"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
+  <li data-roles="manager"><a href="employees.html"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
+
+  <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+</ul>
+  </div>
+
+  <main class="main-content">
+    <header class="header-wrapper">
+      <div class="header-title">
+        <span>Mayondo Wood and Furniture</span>
+        <h2>Dashboard</h2>
+      </div>
+      <div class="user-info">
+        <div class="search-box">
+          <i class="fa-solid fa-search"></i>
+          <input placeholder="Search" aria-label="Search" />
+        </div>
+        <img src="images/bts.jpg" alt="User profile" />
+      </div>
+    </header>
+
+    <section class="card-container">
+      <h3 class="main--title" tabindex="0">Today's Data</h3>
+      <div class="card-wrapper">
+        <div class="payment-card light-red">
+          <div class="card-header">
+            <div class="amount">
+              <span class="title">Daily Sales</span>
+              <span class="amount-value" id="dailySales">$0</span>
+            </div>
+            <i class="fas fa-dollar-sign icon"></i>
+          </div>
+        </div>
+        <div class="payment-card light-purple">
+          <div class="card-header">
+            <div class="amount">
+              <span class="title">Products</span>
+              <span class="amount-value" id="totalProducts">0</span>
+            </div>
+            <i class="fas fa-box icon dark-purple"></i>
+          </div>
+        </div>
+        <div class="payment-card light-green">
+          <div class="card-header">
+            <div class="amount">
+              <span class="title">Customers</span>
+              <span class="amount-value" id="totalCustomers">0</span>
+            </div>
+            <i class="fas fa-users icon dark-green"></i>
+          </div>
+        </div>
+        <div class="payment-card light-blue">
+          <div class="card-header">
+            <div class="amount">
+              <span class="title">Supplied Goods</span>
+              <span class="amount-value" id="suppliedGoods">0</span>
+            </div>
+            <i class="fas fa-truck icon dark-blue"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tabular-wrapper analytics-wrapper">
+      <h3 class="main-title">Analytics</h3>
+      <div class="analytics-grid" role="region" aria-label="Analytics Charts">
+        <section class="analytics-card" aria-label="Monthly Sales Chart">
+          <h5>Monthly Sales</h5>
+          <canvas id="salesChart"></canvas>
+        </section>
+        <section class="analytics-card" aria-label="Most Bought Items Chart">
+          <h5>Most Bought Items</h5>
+          <canvas id="itemsPie"></canvas>
+        </section>
+      </div>
+    </section>
+
+    
+ <br><br>
+    <section class="stock-status-section">
+  <h3>Product Stock Overview</h3>
+  <table class="stock-table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Quantity in Stock</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="stockTableBody">
+      <!-- Filled dynamically by JS -->
+    </tbody>
+  </table>
+</section>
+
+  </main>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

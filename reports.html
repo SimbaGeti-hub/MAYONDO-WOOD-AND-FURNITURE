@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MWF Reports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">MWF</div>
+     <ul class="menu">
+  <li data-roles="manager"><a href="dashboard.html" > <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
+  <li data-roles="manager sales"><a href="product.html"> <i class="fas fa-box"></i><span>Products</span> </a></li>
+  <li data-roles="manager sales"><a href="sales.html"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
+  <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
+  <li data-roles="manager sales delivery"><a href="delivery.html" > <i class="fas fa-route"></i><span>Delivery</span> </a></li>
+  <li data-roles="manager"><a href="reports.html" class="active"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
+  <li data-roles="manager"><a href="employees.html"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
+
+  <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+</ul>
+  </div>
+
+  <main class="main-content">
+    <header class="header-wrapper">
+      <div class="header-title">
+        <span>Mayondo Wood and Furniture</span>
+        <h2>Reports</h2>
+      </div>
+      <div class="user-info">
+        <div class="search-box">
+          <i class="fa-solid fa-search"></i>
+          <input placeholder="Search reports" id="searchReports" />
+        </div>
+        <img src="images/bts.jpg" alt="User profile" />
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h3>Filter and Export Reports</h3>
+      <form id="reportFilterForm">
+        <label>Report Type:
+          <select id="reportType" required>
+            <option value="sales">Sales Report</option>
+            <option value="products">Stock Report</option>
+          </select>
+        </label>
+        <label>Start Date:
+          <input type="date" id="startDate" />
+        </label>
+        <label>End Date:
+          <input type="date" id="endDate" />
+        </label>
+        <button type="submit">Generate Report</button>
+      </form>
+    </section>
+
+    <section class="table-section" id="reportResultsSection" style="display:none;">
+      <h3>Report Results</h3>
+      <button id="exportCSVBtn">Export CSV</button>
+      <table id="reportTable" class="table table-bordered">
+        <thead><tr id="reportTableHead"></tr></thead>
+        <tbody id="reportTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/reports.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

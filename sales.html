@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MWF Sales Recording</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">MWF</div>
+     <ul class="menu">
+  <li data-roles="manager"><a href="dashboard.html" > <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
+  <li data-roles="manager sales"><a href="product.html"> <i class="fas fa-box"></i><span>Products</span> </a></li>
+  <li data-roles="manager sales"><a href="sales.html" class="active"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
+  <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
+  <li data-roles="manager sales delivery"><a href="delivery.html" > <i class="fas fa-route"></i><span>Delivery</span> </a></li>
+  <li data-roles="manager"><a href="reports.html"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
+  <li data-roles="manager"><a href="employees.html"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
+
+  <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+</ul>
+  </div>
+
+  <main class="main-content">
+    <header class="header-wrapper">
+      <div class="header-title">
+        <span>Mayondo Wood and Furniture</span>
+        <h2>Sales Recording</h2>
+      </div>
+      <div class="user-info">
+        <div class="search-box">
+          <i class="fa-solid fa-search"></i>
+          <input placeholder="Search sales by customer or product" id="searchSales" />
+        </div>
+        <img src="images/bts.jpg" alt="User profile" />
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h3>Record a Sale</h3>
+      <form id="salesForm">
+        <label>Customer Name:
+          <input type="text" id="customerName" required />
+        </label>
+        <label>Product Type:
+          <input type="text" id="productType" required />
+        </label>
+        <label>Product Name:
+          <input type="text" id="productName" required />
+        </label>
+        <label>Quantity:
+          <input type="number" id="quantity" min="1" required />
+        </label>
+        <label>Date:
+          <input type="date" id="saleDate" required />
+        </label>
+        <label>Type of Payment:
+          <select id="paymentType" required>
+            <option value="">Select payment</option>
+            <option value="Cash">Cash</option>
+            <option value="Cheque">Cheque</option>
+            <option value="Bank Overdraft">Bank Overdraft</option>
+          </select>
+        </label>
+        <label>Sales Agent:
+          <input type="text" id="salesAgent" required />
+        </label>
+        <label>Provide Transport:
+          <input type="checkbox" id="provideTransport" />
+        </label>
+        <label>Total Price ($):
+          <input type="number" id="totalPrice" min="0" required />
+        </label>
+
+        <button type="submit">Record Sale</button>
+      </form>
+    </section>
+
+    <section class="table-section">
+      <h3>Sales History</h3>
+      <table id="salesTable" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Product Type</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Date</th>
+            <th>Payment Type</th>
+            <th>Sales Agent</th>
+            <th>Transport Fee (%)</th>
+            <th>Total Price ($)</th>
+            <th>Transport Included Price ($)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/sales.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

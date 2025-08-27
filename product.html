@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MWF Products Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">MWF</div>
+    <!-- <ul class="menu">
+      <li><a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a></li>
+      <li><a href="products.html" class="active"><i class="fas fa-box"></i><span>Products</span></a></li>
+      <li><a href="sales.html"><i class="fas fa-dollar-sign"></i><span>Sales</span></a></li>
+      <li><a href="suppliers.html"><i class="fas fa-truck"></i><span>Suppliers</span></a></li>
+      <li><a href="delivery.html"><i class="fas fa-route"></i><span>Delivery</span></a></li>
+      <li><a href="reports.html"><i class="fas fa-file-alt"></i><span>Reports</span></a></li>
+      <li><a href="employees.html"><i class="fas fa-user"></i><span>Employees</span></a></li>
+      <li class="logout"><a href="logout.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    </ul> -->
+     <ul class="menu">
+  <li data-roles="manager"><a href="dashboard.html" class="active"> <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
+  <li data-roles="manager sales"><a href="product.html"> <i class="fas fa-box"></i><span>Products</span> </a></li>
+  <li data-roles="manager sales"><a href="sales.html"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
+  <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
+  <li data-roles="manager sales delivery"><a href="delivery.html"> <i class="fas fa-route"></i><span>Delivery</span> </a></li>
+  <li data-roles="manager"><a href="reports.html"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
+  <li data-roles="manager"><a href="employees.html"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
+
+  <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+</ul>
+  </div>
+
+  <main class="main-content">
+    <header class="header-wrapper">
+      <div class="header-title">
+        <span>Mayondo Wood and Furniture</span>
+        <h2>Products Management</h2>
+      </div>
+      <div class="user-info">
+        <div class="search-box">
+          <i class="fa-solid fa-search"></i>
+          <input placeholder="Search products" id="searchProduct" />
+        </div>
+        <img src="images/bts.jpg" alt="User profile" />
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h3>Add / Update Product</h3>
+      <form id="productForm" autocomplete="off">
+        <label for="productName">Product Name: <sup></sup></label>
+        <input type="text" id="productName" name="productName" placeholder="Enter product name" required />
+
+        <label for="productType">Product Type: <sup></sup></label>
+        <input type="text" id="productType" name="productType" placeholder="Enter product type" required />
+
+        <label for="costPrice">Cost Price: <sup></sup></label>
+        <input type="number" id="costPrice" name="costPrice" min="0" step="0.01" placeholder="Enter cost price" required />
+
+        <label for="quantity">Quantity: <sup></sup></label>
+        <input type="number" id="quantity" name="quantity" min="0" placeholder="Enter quantity in stock" required />
+
+        <label for="productPrice">Product Price: <sup></sup></label>
+        <input type="number" id="productPrice" name="productPrice" min="0" step="0.01" placeholder="Enter sale price" required />
+
+        <label for="supplierName">Supplier: <sup></sup></label>
+        <input type="text" id="supplierName" name="supplierName" placeholder="Enter supplier name" required />
+
+        <label for="productDate">Date Purchased: <sup></sup></label>
+        <input type="date" id="productDate" name="productDate" required />
+
+        <label for="quality">Quality: <sup></sup></label>
+        <input type="text" id="quality" name="quality" placeholder="Enter product quality" required />
+
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" placeholder="Enter product color (optional)" />
+
+        <label for="measurements">Measurements:</label>
+        <input type="text" id="measurements" name="measurements" placeholder="Enter product measurements (optional)" />
+
+        <button type="submit">Save Product</button>
+      </form>
+    </section>
+
+    <section class="table-section">
+      <h3>Products List</h3>
+      <table id="productsTable" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Cost Price</th>
+            <th>Quantity</th>
+            <th>Product Price</th>
+            <th>Supplier</th>
+            <th>Date</th>
+            <th>Quality</th>
+            <th>Color</th>
+            <th>Measurements</th>
+            <th>Added By</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="stock-status-section">
+      <h3>Product Stock Overview</h3>
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity in Stock</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="stockTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/products.js"></script>
+</body>
+</html>

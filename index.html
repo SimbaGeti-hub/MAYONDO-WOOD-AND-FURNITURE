@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+git <html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MWF Login</title>
+  <style>
+    /* Simple clean login page styling */
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #7165db;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 3rem 4rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 360px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #6c5ce7;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-top: 0.4rem;
+      border: 1.5px solid #d1d1d1;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    select:focus {
+      border-color: #6c5ce7;
+      outline: none;
+    }
+
+    button {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 0.9rem;
+      font-size: 1.1rem;
+      background-color: #6c5ce7;
+      color: white;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #574fcf;
+    }
+
+    .error-message {
+      color: #db2d2d;
+      margin-top: 1rem;
+      height: 1.25rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>MWF Login</h2>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" required placeholder="Enter username" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required placeholder="Enter password" />
+
+      <label for="role">Select Role</label>
+      <select id="role" required>
+        <option value="">Choose role</option>
+        <option value="manager">Manager</option>
+        <option value="sales">Sales</option>
+        <option value="delivery">Delivery</option>
+      </select>
+
+      <button type="submit">Login</button>
+      <div class="error-message" id="errorMessage"></div>
+    </form>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const errorMessage = document.getElementById('errorMessage');
+
+    // Simple demo credentials for example purpose
+    const users = {
+      manager: { username: 'manager', password: 'manager123' },
+      sales: { username: 'sales', password: 'sales123' },
+      delivery: { username: 'delivery', password: 'delivery123' },
+    };
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      errorMessage.textContent = '';
+
+      const username = loginForm.username.value.trim();
+      const password = loginForm.password.value.trim();
+      const role = loginForm.role.value;
+
+      if (!role || !username || !password) {
+        errorMessage.textContent = 'Please fill all fields.';
+        return;
+      }
+
+      const user = users[role];
+
+      if (!user || username !== user.username || password !== user.password) {
+        errorMessage.textContent = 'Invalid username or password.';
+        return;
+      }
+
+      // Save user session info locally
+      sessionStorage.setItem('loggedInUser', JSON.stringify({ username, role }));
+
+      // Redirect based on role
+      if (role === 'manager') {
+        window.location.href = 'dashboard.html'; // Manager has full access
+      } else if (role === 'sales') {
+        window.location.href = 'sales.html'; // Sales page (and access to product, delivery, suppliers pages)
+      } else if (role === 'delivery') {
+        window.location.href = 'delivery.html'; // Delivery page only
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MWF Employees Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">MWF</div>
+     <ul class="menu">
+  <li data-roles="manager"><a href="dashboard.html" > <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
+  <li data-roles="manager sales"><a href="product.html"> <i class="fas fa-box"></i><span>Products</span> </a></li>
+  <li data-roles="manager sales"><a href="sales.html"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
+  <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
+  <li data-roles="manager sales delivery"><a href="delivery.html" > <i class="fas fa-route"></i><span>Delivery</span> </a></li>
+  <li data-roles="manager"><a href="reports.html"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
+  <li data-roles="manager"><a href="employees.html" class="active"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
+
+  <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+</ul>
+  </div>
+
+  <main class="main-content">
+    <header class="header-wrapper">
+      <div class="header-title">
+        <span>Mayondo Wood and Furniture</span>
+        <h2>Employees Management</h2>
+      </div>
+      <div class="user-info">
+        <div class="search-box">
+          <i class="fa-solid fa-search"></i>
+          <input placeholder="Search employees" id="searchEmployees" />
+        </div>
+        <img src="images/bts.jpg" alt="User profile" />
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h3>Add / Update Employee</h3>
+      <form id="employeeForm">
+        <label>First Name:<input type="text" id="firstName" required /></label>
+        <label>Last Name:<input type="text" id="lastName" required /></label>
+        <label>Email:<input type="email" id="email" required /></label>
+        <label>Contact Number:<input type="tel" id="contactNumber" pattern="[0-9]{7,15}" required /></label>
+        <label>Date of Birth:<input type="date" id="dob" required /></label>
+        <label>Position:<input type="text" id="position" required /></label>
+        <label>Salary:<input type="number" id="salary" min="0" required /></label>
+        <button type="submit">Save Employee</button>
+      </form>
+    </section>
+
+    <section class="table-section">
+      <h3>Employees List</h3>
+      <table id="employeesTable" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th>Date of Birth</th>
+            <th>Position</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/employees.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
