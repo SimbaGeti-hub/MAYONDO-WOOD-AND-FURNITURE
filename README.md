@@ -13,3 +13,7 @@ The project is built with Node.js, Express, and MySQL (backend) and a simple fro
 To run, clone the repository, install dependencies using npm install, and start the development server with npm start.
 
 Planned improvements include dashboards for sales/stock analytics, automated email reports, multiple branch support, and secure user authentication.
+
+To log is as manager -  usermane = manager, password = manager123  , select role = manager
+To log is as sales -  usermane = sales, password = sales123  , select role = sales
+To log is as delivery -  usermane = delivery, password = delivery123  , select role = delivery
