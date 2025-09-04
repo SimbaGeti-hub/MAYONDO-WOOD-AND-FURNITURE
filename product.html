@@ -13,34 +13,29 @@
 <body>
   <div class="sidebar">
     <div class="logo">MWF</div>
-    <!-- <ul class="menu">
-      <li><a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a></li>
-      <li><a href="products.html" class="active"><i class="fas fa-box"></i><span>Products</span></a></li>
-      <li><a href="sales.html"><i class="fas fa-dollar-sign"></i><span>Sales</span></a></li>
-      <li><a href="suppliers.html"><i class="fas fa-truck"></i><span>Suppliers</span></a></li>
-      <li><a href="delivery.html"><i class="fas fa-route"></i><span>Delivery</span></a></li>
-      <li><a href="reports.html"><i class="fas fa-file-alt"></i><span>Reports</span></a></li>
-      <li><a href="employees.html"><i class="fas fa-user"></i><span>Employees</span></a></li>
-      <li class="logout"><a href="logout.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
-    </ul> -->
-     <ul class="menu">
-  <li data-roles="manager"><a href="dashboard.html" class="active"> <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
-  <li data-roles="manager sales"><a href="product.html"> <i class="fas fa-box"></i><span>Products</span> </a></li>
-  <li data-roles="manager sales"><a href="sales.html"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
-  <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
-  <li data-roles="manager sales delivery"><a href="delivery.html"> <i class="fas fa-route"></i><span>Delivery</span> </a></li>
-  <li data-roles="manager"><a href="reports.html"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
-  <li data-roles="manager"><a href="employees.html"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
+    <ul class="menu">
+      <li data-roles="manager"><a href="dashboard.html"> <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
+      <li data-roles="manager sales"><a href="product.html"  class="active"> <i class="fas fa-box"></i><span>Products</span> </a></li>
+      <li data-roles="manager sales"><a href="sales.html"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
+            <li data-roles="manager sales"><a href="raw-materials.html"> <i class="fas fa-cubes"></i><span>Raw Materials</span> </a></li>
 
-  <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
-</ul>
+      <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
+      <li data-roles="manager sales delivery"><a href="delivery.html"> <i class="fas fa-route"></i><span>Delivery</span> </a></li>
+            <li data-roles="manager"><a href="todo.html"><i class="fas fa-list"></i><span>To-Do</span></a></li>
+
+      <li data-roles="manager"><a href="reports.html"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
+      <li data-roles="manager"><a href="employees.html"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
+      <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    </ul>
   </div>
 
   <main class="main-content">
+
     <header class="header-wrapper">
+      <div class="hamburger"><i class="fas fa-bars"></i></div>
       <div class="header-title">
         <span>Mayondo Wood and Furniture</span>
-        <h2>Products Management</h2>
+        <h2>Products | Stock Management</h2>
       </div>
       <div class="user-info">
         <div class="search-box">
@@ -54,28 +49,28 @@
     <section class="form-section">
       <h3>Add / Update Product</h3>
       <form id="productForm" autocomplete="off">
-        <label for="productName">Product Name: <sup></sup></label>
+        <label for="productName">Product Name:</label>
         <input type="text" id="productName" name="productName" placeholder="Enter product name" required />
 
-        <label for="productType">Product Type: <sup></sup></label>
+        <label for="productType">Product Type:</label>
         <input type="text" id="productType" name="productType" placeholder="Enter product type" required />
 
-        <label for="costPrice">Cost Price: <sup></sup></label>
+        <label for="costPrice">Cost Price:</label>
         <input type="number" id="costPrice" name="costPrice" min="0" step="0.01" placeholder="Enter cost price" required />
 
-        <label for="quantity">Quantity: <sup></sup></label>
+        <label for="quantity">Quantity:</label>
         <input type="number" id="quantity" name="quantity" min="0" placeholder="Enter quantity in stock" required />
 
-        <label for="productPrice">Product Price: <sup></sup></label>
+        <label for="productPrice">Product Price:</label>
         <input type="number" id="productPrice" name="productPrice" min="0" step="0.01" placeholder="Enter sale price" required />
 
-        <label for="supplierName">Supplier: <sup></sup></label>
+        <label for="supplierName">Supplier:</label>
         <input type="text" id="supplierName" name="supplierName" placeholder="Enter supplier name" required />
 
-        <label for="productDate">Date Purchased: <sup></sup></label>
+        <label for="productDate">Date Purchased:</label>
         <input type="date" id="productDate" name="productDate" required />
 
-        <label for="quality">Quality: <sup></sup></label>
+        <label for="quality">Quality:</label>
         <input type="text" id="quality" name="quality" placeholder="Enter product quality" required />
 
         <label for="color">Color:</label>
@@ -84,12 +79,15 @@
         <label for="measurements">Measurements:</label>
         <input type="text" id="measurements" name="measurements" placeholder="Enter product measurements (optional)" />
 
-        <button type="submit">Save Product</button>
+        <div style="margin-top: 1rem;">
+          <button type="submit" id="saveBtn">Save Product</button>
+          <button type="button" id="cancelBtn" style="background:#e74c3c;">Cancel</button>
+        </div>
       </form>
     </section>
 
     <section class="table-section">
-      <h3>Products List</h3>
+      <h3>Products | Stock List</h3>
       <table id="productsTable" class="table table-bordered">
         <thead>
           <tr>
@@ -112,7 +110,7 @@
     </section>
 
     <section class="stock-status-section">
-      <h3>Product Stock Overview</h3>
+      <h3>Product | Stock Overview</h3>
       <table class="stock-table">
         <thead>
           <tr>
@@ -126,6 +124,6 @@
     </section>
   </main>
 
-  <script src="js/products.js"></script>
+  <script src="js/product.js"></script>
 </body>
 </html>

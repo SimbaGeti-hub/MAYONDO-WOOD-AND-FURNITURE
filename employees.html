@@ -5,25 +5,23 @@
   <title>MWF Employees Management</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <div class="sidebar">
     <div class="logo">MWF</div>
-     <ul class="menu">
-  <li data-roles="manager"><a href="dashboard.html" > <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
-  <li data-roles="manager sales"><a href="product.html"> <i class="fas fa-box"></i><span>Products</span> </a></li>
-  <li data-roles="manager sales"><a href="sales.html"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
-  <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
-  <li data-roles="manager sales delivery"><a href="delivery.html" > <i class="fas fa-route"></i><span>Delivery</span> </a></li>
-  <li data-roles="manager"><a href="reports.html"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
-  <li data-roles="manager"><a href="employees.html" class="active"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
-
-  <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
-</ul>
+    <ul class="menu">
+      <li data-roles="manager"><a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a></li>
+      <li data-roles="manager sales"><a href="product.html"><i class="fas fa-box"></i><span>Products</span></a></li>
+      <li data-roles="manager sales"><a href="sales.html"><i class="fas fa-dollar-sign"></i><span>Sales</span></a></li>
+      <li data-roles="manager sales"><a href="raw-materials.html"><i class="fas fa-cubes"></i><span>Raw Materials</span></a></li>
+      <li data-roles="manager sales"><a href="suppliers.html"><i class="fas fa-truck"></i><span>Suppliers</span></a></li>
+      <li data-roles="manager sales delivery"><a href="delivery.html"><i class="fas fa-route"></i><span>Delivery</span></a></li>
+      <li data-roles="manager"><a href="todo.html"><i class="fas fa-list"></i><span>To-Do</span></a></li>
+      <li data-roles="manager"><a href="reports.html"><i class="fas fa-file-alt"></i><span>Reports</span></a></li>
+      <li data-roles="manager"><a href="employees.html" class="active"><i class="fas fa-user"></i><span>Employees</span></a></li>
+      <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    </ul>
   </div>
 
   <main class="main-content">
@@ -43,7 +41,7 @@
 
     <section class="form-section">
       <h3>Add / Update Employee</h3>
-      <form id="employeeForm">
+      <form id="employeeForm" autocomplete="off">
         <label>First Name:<input type="text" id="firstName" required /></label>
         <label>Last Name:<input type="text" id="lastName" required /></label>
         <label>Email:<input type="email" id="email" required /></label>
@@ -51,7 +49,10 @@
         <label>Date of Birth:<input type="date" id="dob" required /></label>
         <label>Position:<input type="text" id="position" required /></label>
         <label>Salary:<input type="number" id="salary" min="0" required /></label>
-        <button type="submit">Save Employee</button>
+        <div style="margin-top:1rem;">
+          <button type="submit" class="btn btn-save"><i class="fa fa-save"></i> Save Employee</button>
+          <button type="button" id="cancelEdit" class="btn btn-cancel"><i class="fa fa-times"></i> Cancel</button>
+        </div>
       </form>
     </section>
 

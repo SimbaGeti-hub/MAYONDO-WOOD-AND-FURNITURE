@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MWF Raw Materials Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">MWF</div>
+    <ul class="menu">
+      <li data-roles="manager"><a href="dashboard.html"> <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
+      <li data-roles="manager sales"><a href="product.html"> <i class="fas fa-box"></i><span>Products</span> </a></li>
+      <li data-roles="manager sales"><a href="sales.html"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
+      <li data-roles="manager sales"><a href="raw-materials.html" class="active"> <i class="fas fa-cubes"></i><span>Raw Materials</span> </a></li>
+      <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
+      <li data-roles="manager sales delivery"><a href="delivery.html"> <i class="fas fa-route"></i><span>Delivery</span> </a></li>
+            <li data-roles="manager"><a href="todo.html"><i class="fas fa-list"></i><span>To-Do</span></a></li>
+
+      <li data-roles="manager"><a href="reports.html"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
+      <li data-roles="manager"><a href="employees.html"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
+      <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    </ul>
+  </div>
+
+  <main class="main-content">
+    <header class="header-wrapper">
+      <div class="hamburger"><i class="fas fa-bars"></i></div>
+      <div class="header-title">
+        <span>Mayondo Wood and Furniture</span>
+        <h2>Raw Materials | Stock Management</h2>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h3>Add / Update Raw Material</h3>
+      <form id="rawMaterialForm" autocomplete="off">
+        <label>Raw Material Name:
+          <input type="text" id="rawName" required />
+        </label>
+        <label>Type:
+          <input type="text" id="rawType" required />
+        </label>
+        <label>Cost Price ($):
+          <input type="number" id="costPrice" min="0" step="0.01" required />
+        </label>
+        <label>Quantity Bought:
+          <input type="number" id="quantityBought" min="0" required />
+        </label>
+        <label>Supplier Name:
+          <input type="text" id="supplierName" required />
+        </label>
+        <label>Date Purchased:
+          <input type="date" id="purchaseDate" required />
+        </label>
+        <label>Quality:
+          <input type="text" id="quality" required />
+        </label>
+        <label>Color (optional):
+          <input type="text" id="color" />
+        </label>
+        <label>Measurements (optional):
+          <input type="text" id="measurements" />
+        </label>
+        <div style="margin-top:1rem;">
+          <button type="submit">Save Raw Material</button>
+          <button type="button" id="cancelBtn" class="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="table-section">
+      <h3>Raw Materials Stock List</h3>
+      <table id="rawMaterialsTable" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Cost Price ($)</th>
+            <th>Quantity Bought</th>
+            <th>Supplier</th>
+            <th>Date</th>
+            <th>Quality</th>
+            <th>Color</th>
+            <th>Measurements</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="raw-summary-section">
+  <h3>Raw Materials Summary</h3>
+  <table class="table table-bordered" id="rawMaterialsSummary">
+    <thead>
+      <tr>
+        <th>Raw Material</th>
+        <th>Total Quantity</th>
+      </tr>
+    </thead>
+    <tbody id="rawMaterialsSummaryBody"></tbody>
+  </table>
+</section>
+
+
+    <!-- <section class="raw-summary-section">
+      <h3>Total Raw Materials Summary</h3>
+      <p>Total Quantity of Raw Materials: <span id="totalRawQuantity">0</span></p>
+    </section> -->
+  </main>
+
+  <script src="js/raw-materials.js"></script>
+</body>
+</html>

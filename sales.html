@@ -13,21 +13,25 @@
 <body>
   <div class="sidebar">
     <div class="logo">MWF</div>
-     <ul class="menu">
-  <li data-roles="manager"><a href="dashboard.html" > <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
-  <li data-roles="manager sales"><a href="product.html"> <i class="fas fa-box"></i><span>Products</span> </a></li>
-  <li data-roles="manager sales"><a href="sales.html" class="active"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
-  <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
-  <li data-roles="manager sales delivery"><a href="delivery.html" > <i class="fas fa-route"></i><span>Delivery</span> </a></li>
-  <li data-roles="manager"><a href="reports.html"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
-  <li data-roles="manager"><a href="employees.html"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
+    <ul class="menu">
+      <li data-roles="manager"><a href="dashboard.html" > <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span> </a></li>
+      <li data-roles="manager sales"><a href="product.html"> <i class="fas fa-box"></i><span>Products</span> </a></li>
+      <li data-roles="manager sales"><a href="sales.html" class="active"> <i class="fas fa-dollar-sign"></i><span>Sales</span> </a></li>
+            <li data-roles="manager sales"><a href="raw-materials.html"> <i class="fas fa-cubes"></i><span>Raw Materials</span> </a></li>
 
-  <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
-</ul>
+      <li data-roles="manager sales"><a href="suppliers.html"> <i class="fas fa-truck"></i><span>Suppliers</span> </a></li>
+      <li data-roles="manager sales delivery"><a href="delivery.html" > <i class="fas fa-route"></i><span>Delivery</span> </a></li>
+            <li data-roles="manager"><a href="todo.html"><i class="fas fa-list"></i><span>To-Do</span></a></li>
+
+      <li data-roles="manager"><a href="reports.html"> <i class="fas fa-file-alt"></i><span>Reports</span> </a></li>
+      <li data-roles="manager"><a href="employees.html"> <i class="fas fa-user"></i><span>Employees</span> </a></li>
+      <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    </ul>
   </div>
 
   <main class="main-content">
     <header class="header-wrapper">
+      <div class="hamburger"><i class="fas fa-bars"></i></div>
       <div class="header-title">
         <span>Mayondo Wood and Furniture</span>
         <h2>Sales Recording</h2>
@@ -43,7 +47,7 @@
 
     <section class="form-section">
       <h3>Record a Sale</h3>
-      <form id="salesForm">
+      <form id="salesForm" autocomplete="off">
         <label>Customer Name:
           <input type="text" id="customerName" required />
         </label>
@@ -77,7 +81,10 @@
           <input type="number" id="totalPrice" min="0" required />
         </label>
 
-        <button type="submit">Record Sale</button>
+        <div style="margin-top:1rem;">
+          <button type="submit">Save Sale</button>
+          <button type="button" id="cancelBtn" class="cancel-btn">Cancel</button>
+        </div>
       </form>
     </section>
 
@@ -102,9 +109,52 @@
         <tbody></tbody>
       </table>
     </section>
+
+    <section class="sales-summary-section">
+  <h3>Daily Sales Summary</h3>
+  <table class="table table-bordered" id="dailySalesTable">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Sale Amount ($)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2"><strong>Total for the Day</strong></td>
+        <td id="dailyItems">0</td>
+        <td id="dailyTotal">0</td>
+      </tr>
+    </tfoot>
+  </table>
+</section>
+
+
+    <!-- <section class="sales-summary-section">
+      <h3>Daily Sales Summary</h3>
+      <table class="table table-bordered" id="dailySalesTable">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Sale Amount ($)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3"><strong>Total for the Day</strong></td>
+            <td id="dailyTotal">0</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section> -->
   </main>
 
   <script src="js/sales.js"></script>
-  <script src="js/main.js"></script>
 </body>
 </html>

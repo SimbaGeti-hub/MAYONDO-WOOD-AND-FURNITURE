@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>MWF Delivery Tracking</title>
+<title>MWF To-Do List</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -16,8 +16,8 @@
     <li data-roles="manager sales"><a href="sales.html"><i class="fas fa-dollar-sign"></i><span>Sales</span></a></li>
     <li data-roles="manager sales"><a href="raw-materials.html"><i class="fas fa-cubes"></i><span>Raw Materials</span></a></li>
     <li data-roles="manager sales"><a href="suppliers.html"><i class="fas fa-truck"></i><span>Suppliers</span></a></li>
-    <li data-roles="manager sales delivery"><a href="delivery.html" class="active"><i class="fas fa-route"></i><span>Delivery</span></a></li>
-    <li data-roles="manager"><a href="todo.html"><i class="fas fa-list"></i><span>To-Do</span></a></li>
+    <li data-roles="manager sales delivery"><a href="delivery.html"><i class="fas fa-route"></i><span>Delivery</span></a></li>
+    <li data-roles="manager"><a href="todo.html" class="active"><i class="fas fa-list"></i><span>To-Do</span></a></li>
     <li data-roles="manager"><a href="reports.html"><i class="fas fa-file-alt"></i><span>Reports</span></a></li>
     <li data-roles="manager"><a href="employees.html"><i class="fas fa-user"></i><span>Employees</span></a></li>
     <li class="logout"><a href="log-out.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
@@ -28,47 +28,50 @@
   <header class="header-wrapper">
     <div class="header-title">
       <span>Mayondo Wood and Furniture</span>
-      <h2>Delivery Tracking</h2>
+      <h2>To-Do List</h2>
     </div>
     <div class="user-info">
       <div class="search-box">
         <i class="fa-solid fa-search"></i>
-        <input placeholder="Search deliveries" id="searchDeliveries" />
+        <input placeholder="Search tasks" id="searchTasks" />
       </div>
       <img src="images/bts.jpg" alt="User profile" />
     </div>
   </header>
 
   <section class="form-section">
-    <h3>Add Delivery Record</h3>
-    <form id="deliveryForm">
-      <label>Order Number:<input type="text" id="orderNumber" required /></label>
-      <label>Product:<input type="text" id="product" required /></label>
-      <label>Vehicle:<input type="text" id="vehicle" required /></label>
-      <label>Driver:<input type="text" id="driver" required /></label>
-      <label>Customer:<input type="text" id="customer" required /></label>
-      <label>Route Distance (km):<input type="number" min="0" step="0.1" id="distance" required /></label>
-      <label>Estimated Time (hours):<input type="number" min="0" step="0.1" id="estimatedTime" required /></label>
-      <label>Delivery Date & Time:<input type="datetime-local" id="deliveryTime" required /></label>
-      <label>Status:<select id="status" required>
-        <option value="">Select Status</option>
-        <option value="In Transit">In Transit</option>
-        <option value="Delivered">Delivered</option>
-        <option value="Delayed">Delayed</option>
+    <h3>Add Task</h3>
+    <form id="taskForm">
+      <label>Task Name:<input type="text" id="taskName" required /></label>
+      <label>Due Date & Time:<input type="datetime-local" id="taskDueTime" /></label>
+      <label>Type:<select id="taskType" required>
+        <option value="Manual">Manual</option>
+        <option value="Delivery">Delivery</option>
       </select></label>
       <div style="margin-top:1rem;">
-        <button type="submit">Add Delivery</button>
-        <button type="button" id="cancelBtn" class="cancel-btn">Cancel</button>
+        <button type="submit">Add Task</button>
+        <button type="button" id="cancelTaskBtn" class="cancel-btn">Cancel</button>
       </div>
     </form>
   </section>
 
-  <section class="delivery-list">
-    <h3>Current Deliveries</h3>
-    <div id="deliveriesContainer" class="delivery-cards"></div>
+  <section class="table-section">
+    <h3>Tasks</h3>
+    <table id="tasksTable" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Type</th>
+          <th>Due Time</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </section>
 </main>
 
-<script src="js/delivery.js"></script>
+<script src="js/todo.js"></script>
 </body>
 </html>
